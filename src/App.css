@@ -1,15 +1,16 @@
-.App {
-  text-align: center;
-}
+/*.App {
+    text-align: center;
+}*/
 
 #container {
     width: 100%;
 }
 
 #artistHeader {
-    width: 1220px;
+    width: 1010px;
     margin: 0 auto;
     margin-top: 57px;
+    border: 3px solid green;
 }
 
 #artistImage,
@@ -48,9 +49,197 @@ img {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
+
+
+/* the cell */
+
+table {
+  border: 3px solid red;
+}
+
+td {
+    /*display: inline-block;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: 3px solid black;
+    /*flex: 0 0 100%;*/
+    /*box-sizing: border-box;*/
+}
+
+
+
+
+/* the row */
+
+tr {
+    /*margin-bottom: 45px;*/
+    /*margin-top: 45px;*/
+    height: 90px;
+    border: 1px solid red;
+    /*    border-bottom: 2px solid #D9D9D9;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*box-sizing: border-box;*/
+    /*width: 100%;*/
+}
+
 #eventsTable {
-    width: 1220px;
+    width: 1010px;
     margin: 0 auto;
     margin-top: 25px;
     margin-bottom: 40px;
+}
+
+#monthDate {
+    color: #00b4b3;
+    font-weight: bold;
+    font-size: 23px;
+    width: 178px;
+    /*margin-left: 30px;*/
+}
+
+#venueName {
+    font-weight: bold;
+    font-size: 20px;
+    width: 495px;
+}
+
+#venueLocation {
+    font-size: 20px;
+    width: 350px;
+}
+
+#ticketsButton {
+    color: #00b4b3;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #00b4b3;
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+    /*padding-left: 30px;*/
+    /*padding-right: 30px;*/
+    border-radius: 6px;
+    /*margin-left: 30px;*/
+}
+
+#ticketsButton:hover {
+    color: white;
+    background-color: #00b4b3
+}
+
+#text-noUpcomingEvents {
+    text-align: center;
+    padding-top: 190px;
+    font-size: 29px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #A0A0A0;
+}
+
+@media (max-width: 1040px) {
+    #artistHeader {
+        width: 630px;
+        /*margin-left: 200px;*/
+        /*margin-right: 200px;*/
+        margin-top: 40px;
+    }
+
+    #eventsTable {
+        width: 630px;
+        /*margin-left: 200px;*/
+        /*margin-right: 200px;*/
+    }
+
+    img {
+        display: block;
+        height: 85px;
+        width: 85px;
+    }
+
+    #artistName {
+        font-size: 22px;
+    }
+
+    #text-upcomingEvents {
+        /*padding-left: 16px;*/
+        /*margin-left: 16px;*/
+        font-size: 22px;
+    }
+
+    tr {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    td {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+        /*margin-top: 4px;*/
+        /*margin-bottom: 4px;*/
+    }
+
+    #monthDate {
+        order: 1;
+        font-weight: bold;
+        font-size: 18px;
+        width: 100%;
+        /*margin-left: 15px;*/
+        /*margin-top: 25px;*/
+    }
+
+    #venueName {
+        order: 2;
+        font-size: 15px;
+        width: 100%;
+        flex: 0 0 70%;
+        /*padding-left: 15px;*/
+    }
+
+    #ticketsButtonCell {
+        order: 3;
+        flex: 0 0 30%;
+        width: 100%;
+        text-align: right;
+        font-size: 15px;
+        /*padding-right: 15px;*/
+    }
+
+    #ticketsButton {
+        font-size: 15px;
+        width: 100%;
+        /*padding-left: 20px;*/
+        /*padding-right: 20px;*/
+        /*padding-top: 8px;*/
+        /*padding-bottom: 8px;*/
+    }
+
+    #venueLocation {
+        order: 4;
+        width: 100%;
+        font-size: 15px;
+        /*margin-left: 15px;*/
+        /*margin-bottom: 25px;*/
+    }
+
+    .text-noUpcomingEvents {
+        font-size: 24px;
+        padding-top: 140px;
+    }
+}
+
+@media (max-width: 630px) {
+    #eventsTable {
+        width: 100%;
+        /*margin-left: 10px;*/
+        margin-right: 10px;
+    }
+
+    #artistHeader {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 40px;
+    }
 }
