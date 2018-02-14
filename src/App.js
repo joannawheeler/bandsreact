@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Moment from 'react-moment';
 import qs  from 'qs';
 
@@ -46,28 +45,52 @@ class EventList extends Component {
 class EventRow extends Component {
   render() {
     const event = this.props.event;
-    const location = event.venue.country === "United States" ? event.venue.city + ", " + event.venue.region : event.venue.city + ", " + event.venue.country;
+
     const datetime = event.datetime;
+
+    const venueName = event.venue.name;
+
+    const location = event.venue.country === "United States" ? event.venue.city + ", " + event.venue.region : event.venue.city + ", " + event.venue.country;
+
+    let ticketURL = "#";
+
+    let ticketDisplay = "displayTicket";
+
+    if (event.offers.length >= 1) {
+      ticketURL = event.offers[0].url;
+    } else {
+      ticketDisplay = "doNotDisplayTicket";
+    }
+    console.log(event);
 
     return (
       <tr>
-        <td id="monthDate"><Moment format="MMM DD">{datetime}</Moment></td>
-        <td id="venueName">{event.venue.name}</td>
-        <td id="venueLocation">{location}</td>
-        <td id="ticketsButtonCell"><a href="" id="ticketsButton">tickets button</a></td>
+        <td id="monthDate"><span><Moment format="MMM DD">{datetime}</Moment></span></td>
+        <td id="venueName"><span>{venueName}</span></td>
+        <td id="venueLocation"><span>{location}</span></td>
+        <td id="ticketsButtonCell"><span id={ticketDisplay}><a href={ticketURL} id="ticketsButton">Tickets</a></span></td>
       </tr>
     );
   }
 }
 
-class Container extends Component {
-  constructor(props) {
+class NoUpcomingEvents extends Component {
+ render() {
+  return (
+    <div id="text-noUpcomingEvents">No upcoming events.</div>
+  )
+ }
+}
+
+class App extends Component {
+    constructor(props) {
     super(props);
     this.state = {
       events: [],
       artist: [],
       artistName: "",
-      auth: "?app_id=bit_challenge"
+      auth: "?app_id=bit_challenge",
+      loaded: false
     }
   }
 
@@ -78,55 +101,43 @@ class Container extends Component {
     this.setState({
       artistName: artistName
     })
-    // const auth = "?app_id=bit_challenge";
-    //const requestURL = "https://rest.bandsintown.com/artists/" + artistName;
     const requestURL = 'https://rest.bandsintown.com/artists/' + artistName;
 
-    fetch('https://rest.bandsintown.com/artists/' + artistName + this.state.auth)
+    fetch(requestURL + this.state.auth)
       .then(res => res.json())
       .then(data =>
       this.setState({
         artist: data,
       }));
+
     fetch(requestURL + '/events' + this.state.auth)
       .then(res => res.json())
       .then(data =>
       this.setState({
         events: data,
+        loaded: true
       }));
   }
-        // <Router>
-        // <div>
-          // <Route path={path}
 
   render() {
     const { events } = this.state;
     const { artist } = this.state;
+    let display;
+
+    if (events.length >= 1) {
+      display =
+      <EventList events={ events } />
+    } else if (events.length < 1 && this.state.loaded === true) {
+      display = <NoUpcomingEvents />
+    }
+
     return (
-      <div>
+      <div id="container">
         <ArtistHeader artist={ artist } />
-        <EventList events={ events } />
+        { display }
       </div>
     )
   }
 }
-
-class App extends Component {
-
-  render() {
-    return (
-      <div id="container">
-        <Router>
-        <div>
-            <Route path='/' component={ Container } />
-          </div>
-        </Router>
-      </div>
-    );
-  }
-}
-//localhost:3000/?artist=:url_escaped_artist_name
-
-
 
 export default App;

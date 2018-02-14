@@ -1,16 +1,19 @@
-/*.App {
-    text-align: center;
-}*/
-
-#container {
-    width: 100%;
-}
+#container {}
 
 #artistHeader {
-    width: 1010px;
+    width: 1230px;
     margin: 0 auto;
-    margin-top: 57px;
-    border: 3px solid green;
+    margin-top: 75px;
+}
+
+#text-noUpcomingEvents {
+    width: 1230px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 190px;
+    font-size: 30px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #A0A0A0;
 }
 
 #artistImage,
@@ -49,59 +52,43 @@ img {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-
-
-
-/* the cell */
-
 table {
-  border: 3px solid red;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 130px;
+    border-bottom: 3px solid #D9D9D9;
 }
 
 td {
-    /*display: inline-block;*/
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    border: 3px solid black;
-    /*flex: 0 0 100%;*/
-    /*box-sizing: border-box;*/
 }
 
-
-
-
-/* the row */
-
-tr {
-    /*margin-bottom: 45px;*/
-    /*margin-top: 45px;*/
-    height: 90px;
-    border: 1px solid red;
-    /*    border-bottom: 2px solid #D9D9D9;*/
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*box-sizing: border-box;*/
-    /*width: 100%;*/
-}
 
 #eventsTable {
-    width: 1010px;
+    width: 1230px;
     margin: 0 auto;
-    margin-top: 25px;
-    margin-bottom: 40px;
+    margin-top: 35px;
+    margin-bottom: 60px;
 }
 
 #monthDate {
     color: #00b4b3;
     font-weight: bold;
     font-size: 23px;
-    width: 178px;
-    /*margin-left: 30px;*/
+    width: 130px;
+    text-align: center;
 }
 
 #venueName {
     font-weight: bold;
     font-size: 20px;
-    width: 495px;
+    width: 500px;
+}
+
+#venueName span {
+    padding-left: 80px;
 }
 
 #venueLocation {
@@ -109,18 +96,28 @@ tr {
     width: 350px;
 }
 
+#venueLocation span {
+    font-size: 20px;
+    width: 350px;
+    padding-left: 60px;
+}
+
+#ticketsButtonCell {
+    text-align: center;
+    width: 210px;
+}
+
 #ticketsButton {
     color: #00b4b3;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 21px;
     font-weight: bold;
     border: 2px solid #00b4b3;
-    /*padding-top: 10px;*/
-    /*padding-bottom: 10px;*/
-    /*padding-left: 30px;*/
-    /*padding-right: 30px;*/
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 27px;
+    padding-right: 27px;
     border-radius: 6px;
-    /*margin-left: 30px;*/
 }
 
 #ticketsButton:hover {
@@ -128,32 +125,32 @@ tr {
     background-color: #00b4b3
 }
 
-#text-noUpcomingEvents {
-    text-align: center;
-    padding-top: 190px;
-    font-size: 29px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #A0A0A0;
+#doNotDisplayTicket {
+    display: none;
 }
 
-@media (max-width: 1040px) {
+
+@media (max-width: 1080px) {
     #artistHeader {
         width: 630px;
-        /*margin-left: 200px;*/
-        /*margin-right: 200px;*/
-        margin-top: 40px;
+        margin-top: 30px;
+        margin-bottom: 0;
     }
 
-    #eventsTable {
+    #text-noUpcomingEvents {
         width: 630px;
-        /*margin-left: 200px;*/
-        /*margin-right: 200px;*/
+        text-align: center;
+        margin-top: 190px;
+        font-size: 29px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #A0A0A0;
     }
 
     img {
         display: block;
         height: 85px;
         width: 85px;
+        margin-left: 20px;
     }
 
     #artistName {
@@ -161,8 +158,6 @@ tr {
     }
 
     #text-upcomingEvents {
-        /*padding-left: 16px;*/
-        /*margin-left: 16px;*/
         font-size: 22px;
     }
 
@@ -171,13 +166,22 @@ tr {
         flex-wrap: wrap;
         box-sizing: border-box;
         width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 140px;
+        padding-bottom: 20px;
+        padding-top: 20px;
     }
 
     td {
         flex: 0 0 100%;
         box-sizing: border-box;
-        /*margin-top: 4px;*/
-        /*margin-bottom: 4px;*/
+    }
+
+    #eventsTable {
+        width: 630px;
+        margin-top: 25px;
+        margin-bottom: 10px;
     }
 
     #monthDate {
@@ -185,16 +189,32 @@ tr {
         font-weight: bold;
         font-size: 18px;
         width: 100%;
-        /*margin-left: 15px;*/
-        /*margin-top: 25px;*/
+        text-align: left;
+        padding-left: 20px;
     }
 
     #venueName {
         order: 2;
-        font-size: 15px;
+        font-size: 16px;
         width: 100%;
         flex: 0 0 70%;
-        /*padding-left: 15px;*/
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    #venueName span {
+        padding-left: 0;
+    }
+
+    #venueLocation {
+        text-align: left;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+
+    #venueLocation span {
+        padding-left: 0;
+        font-size: 16px;
     }
 
     #ticketsButtonCell {
@@ -202,44 +222,52 @@ tr {
         flex: 0 0 30%;
         width: 100%;
         text-align: right;
-        font-size: 15px;
-        /*padding-right: 15px;*/
+        padding-right: 20px;
     }
 
     #ticketsButton {
-        font-size: 15px;
-        width: 100%;
-        /*padding-left: 20px;*/
-        /*padding-right: 20px;*/
-        /*padding-top: 8px;*/
-        /*padding-bottom: 8px;*/
+        font-size: 16px;
+        border: 2px solid #00b4b3;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-left: 23px;
+        padding-right: 23px;
+        border-radius: 6px;
     }
 
     #venueLocation {
         order: 4;
         width: 100%;
         font-size: 15px;
-        /*margin-left: 15px;*/
-        /*margin-bottom: 25px;*/
-    }
-
-    .text-noUpcomingEvents {
-        font-size: 24px;
-        padding-top: 140px;
     }
 }
 
-@media (max-width: 630px) {
+@media (max-width: 650px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     #eventsTable {
         width: 100%;
-        /*margin-left: 10px;*/
-        margin-right: 10px;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 40px;
     }
 
     #artistHeader {
         width: 100%;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 40px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    #text-noUpcomingEvents {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 150px;
+        font-size: 24px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #A0A0A0;
     }
 }
