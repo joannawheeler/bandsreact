@@ -1,4 +1,4 @@
-#  Bandsintown Code Challenge
+#  Bandsintown Code Challenge (created with React)
 An upcoming events view app for any artist using the Bandsintown public API. The app shows upcoming tour dates for the specified artist.
 
 
