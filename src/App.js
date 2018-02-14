@@ -33,7 +33,8 @@ class App extends Component {
       .then(data =>
       this.setState({
         artist: data,
-      }));
+      }))
+      .catch(error => console.log('error:', error));
 
     fetch(requestURL + '/events' + this.state.auth)
       .then(res => res.json())
@@ -41,7 +42,8 @@ class App extends Component {
       this.setState({
         events: data,
         loaded: true
-      }));
+      }))
+      .catch(error => console.log('error:', error));
   }
 
   render() {
