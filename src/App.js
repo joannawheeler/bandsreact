@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Moment from 'react-moment';
 import qs  from 'qs';
 import EventList from './EventList.js';
 import ArtistHeader from './ArtistHeader.js';
